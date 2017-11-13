@@ -1,5 +1,5 @@
 from os.path import join, split, splitext
-from urllib.parse import quote_plus
+from urllib.parse import quote
 
 import json
 
@@ -51,7 +51,7 @@ class ConfigManager:
 
             )
 
-        return directory_list
+        return list(set(directory_list))
 
     @property
     def article_list(self):
@@ -83,7 +83,7 @@ class ConfigManager:
             slug_dict[article_topic][1].append((
                 article['title'],
 
-                quote_plus(
+                quote(
                     self._rename_md_to_html(article['source']),
                     safe='/'
                 )

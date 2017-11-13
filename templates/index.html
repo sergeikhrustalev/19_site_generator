@@ -1,12 +1,19 @@
+{% extends "templates/base.html" %}
 
+{% block title%}
+Главная страница
+{% endblock%}
 
-
+{% block content%}
 {% for topic in index_structure %}
 
-    <b>{{topic.0}}</b><br>
-
+    <h4>{{topic.0}}</h4>
+    
+    <ul>
     {% for article in topic.1 %}
-        <a href="{{article.1}}">{{article.0|e}}</a><br>
+        <li><a href="{{article.1}}">{{article.0|e}}</a><br></li>
     {% endfor%}
+    </ul>
 
 {% endfor %}
+{% endblock%}
