@@ -1,0 +1,12 @@
+
+
+
+{% for topic in index_structure %}
+
+    <b>{{topic.0}}</b><br>
+
+    {% for article in topic.1 %}
+        <a href="{{article.1}}">{{article.0}}</a><br>
+    {% endfor%}
+
+{% endfor %}

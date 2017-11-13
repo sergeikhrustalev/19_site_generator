@@ -16,7 +16,7 @@ class ConfigManager:
         self._target_dir = target_dir
 
     def _rename_md_to_html(self, article_source):
-        return '{}{}'.format(splitext(article_source)[0],'.html')
+        return '{}{}'.format(splitext(article_source)[0], '.html')
 
     def _get_md_path(self, article_source):
 
@@ -72,18 +72,6 @@ class ConfigManager:
 
         return structure
 
-
     @property
     def index_page(self):
         return join(self._target_dir, 'index.html')
-
-    
-
-
-
-
-
-if __name__ == '__main__':
-    cp = ConfigManager()
-    print(cp.index_structure)
-
