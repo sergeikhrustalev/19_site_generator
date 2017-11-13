@@ -38,7 +38,7 @@ class ConfigManager:
     @property
     def directory_list(self):
 
-        directory_list = []
+        directory_list = list()
         
         for article in self._config_data['articles']:
 
@@ -56,7 +56,7 @@ class ConfigManager:
     @property
     def article_list(self):
 
-        article_list = []
+        article_list = list()
 
         for article in self._config_data['articles']:
 
@@ -74,7 +74,7 @@ class ConfigManager:
         slug_dict = dict()
 
         for topic in self._config_data['topics']:
-            slug_dict[topic['slug']] = topic['title'], []
+            slug_dict[topic['slug']] = topic['title'], list()
 
         for article in self._config_data['articles']:
 
@@ -90,7 +90,7 @@ class ConfigManager:
 
             ))
 
-        structure = []
+        structure = list()
 
         for topic in self._config_data['topics']:
             structure.append(slug_dict[topic['slug']])

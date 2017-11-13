@@ -19,13 +19,13 @@ def convert_from_markdown(md_filepath):
     return markdown(md_content, extensions=['codehilite'])
 
 
-def generate_index_page(filepath, index_structure):
+def generate_index_page(index_page, index_structure):
 
     environment = Environment(loader=FileSystemLoader('.'))
 
     template = environment.get_template('templates/index.html')
 
-    with open(filepath, 'w') as file_handler:
+    with open(index_page, 'w') as file_handler:
 
         file_handler.write(
             template.render(index_structure=index_structure)
@@ -47,16 +47,28 @@ def generate_article_page(title, md_filepath, html_filepath):
         )
 
 
-if __name__ == '__main__':
+def generate_site(path_to_configdir, path_to_targetdir):
 
-    config_manager = ConfigManager()
-
-    create_directories(config_manager.directory_list)
-
-    generate_index_page(
-       config_manager.index_page,
-       config_manager.index_structure
+    manager = ConfigManager(
+        config_dir = path_to_configdir,
+        target_dir = path_to_targetdir
     )
 
-    for title, md_filepath, html_filepath in config_manager.article_list:
+    create_directories(manager.directory_list)
+
+    generate_index_page(
+       manager.index_page,
+       manager.index_structure
+    )
+
+    for title, md_filepath, html_filepath in manager.article_list:
         generate_article_page(title, md_filepath, html_filepath)
+
+
+if __name__ == '__main__':
+
+    generate_site('.', 'htmldir')
+
+
+
+
