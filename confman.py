@@ -1,4 +1,6 @@
-from os.path import join, splitext
+from os.path import join, split, splitext
+from urllib.parse import quote_plus
+
 import json
 
 
@@ -29,9 +31,27 @@ class ConfigManager:
     def _get_html_path(self, article_source):
 
         return join(
-        self._target_dir,
-        self._rename_md_to_html(article_source)
+            self._target_dir,
+            self._rename_md_to_html(article_source)
         )
+
+    @property
+    def directory_list(self):
+
+        directory_list = []
+        
+        for article in self._config_data['articles']:
+
+            directory_list.append(
+
+                join(
+                    self._target_dir,
+                    split(article['source'])[0]
+                )
+
+            )
+
+        return directory_list
 
     @property
     def article_list(self):
@@ -62,7 +82,12 @@ class ConfigManager:
 
             slug_dict[article_topic][1].append((
                 article['title'],
-                self._rename_md_to_html(article['source'])
+
+                quote_plus(
+                    self._rename_md_to_html(article['source']),
+                    safe='/'
+                )
+
             ))
 
         structure = []

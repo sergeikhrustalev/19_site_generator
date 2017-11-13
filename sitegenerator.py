@@ -1,5 +1,13 @@
+import os
+
 from jinja2 import Environment, FileSystemLoader
 from confman import ConfigManager
+
+
+def create_directories(directory_list):
+    
+    for directory in directory_list:
+       os.makedirs(directory, exist_ok=True)
 
 
 def generate_index_page(filepath, structure):
@@ -31,6 +39,8 @@ def generate_article_page(title, md_filepath, html_filepath):
 if __name__ == '__main__':
 
     config_manager = ConfigManager()
+
+    create_directories(config_manager.directory_list)
 
     structure = config_manager.index_structure
     filepath = config_manager.index_page
