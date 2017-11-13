@@ -14,8 +14,23 @@
   </head>
   <body>
     <div class="container">
+      <br>
+      {% block nav%}
+      <nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb">
+          {% if pagetype == 'index' %}
+          <li class="breadcrumb-item active" aria-current="page">Главная</li>
+          {% elif pagetype == 'article' %}
+          <li class="breadcrumb-item"><a href="../index.html">Главная</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{article_title}}</li>
+          {% endif %}
+        </ol>
+      </nav>
+      {% endblock%}
+
       {% block content%}
       {% endblock %}
+
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

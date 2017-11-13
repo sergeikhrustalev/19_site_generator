@@ -1,10 +1,12 @@
-{% extends "templates/base.html" %}
+{% extends 'templates/base.html' %}
 
 {% block title %}
 {{ title|e }}
 {% endblock %}
 
+{% set pagetype = 'article' %}
+{% set article_title = title|e %}
+
 {% block content %}
-<h1>{{ title|e }}</h1>
 {{ html_content }}
 {% endblock %}
