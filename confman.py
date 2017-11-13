@@ -9,7 +9,7 @@ class ConfigManager:
     def __init__(self, config_dir='.', target_dir='html'):
 
         config_path = join(config_dir, 'config.json')
-        
+
         with open(config_path) as file_handler:
             json_content = file_handler.read()
 
@@ -39,7 +39,7 @@ class ConfigManager:
     def directory_list(self):
 
         directory_list = list()
-        
+
         for article in self._config_data['articles']:
 
             directory_list.append(

@@ -6,13 +6,13 @@ from confman import ConfigManager
 
 
 def create_directories(directory_list):
-    
+
     for directory in directory_list:
-       os.makedirs(directory, exist_ok=True)
+        os.makedirs(directory, exist_ok=True)
 
 
 def convert_from_markdown(md_filepath):
-    
+
     with open(md_filepath) as file_handler:
         md_content = file_handler.read()
 
@@ -41,7 +41,7 @@ def generate_article_page(title, md_filepath, html_filepath):
     html_content = convert_from_markdown(md_filepath)
 
     with open(html_filepath, 'w') as file_handler:
-        
+
         file_handler.write(
             template.render(title=title, html_content=html_content)
         )
@@ -50,8 +50,8 @@ def generate_article_page(title, md_filepath, html_filepath):
 def generate_site(path_to_configdir, path_to_targetdir):
 
     manager = ConfigManager(
-        config_dir = path_to_configdir,
-        target_dir = path_to_targetdir
+        config_dir=path_to_configdir,
+        target_dir=path_to_targetdir
     )
 
     create_directories(manager.directory_list)
@@ -68,7 +68,3 @@ def generate_site(path_to_configdir, path_to_targetdir):
 if __name__ == '__main__':
 
     generate_site('.', 'htmldir')
-
-
-
-
