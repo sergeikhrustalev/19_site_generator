@@ -1,4 +1,7 @@
 import os
+import sys
+import argparse
+
 
 from markdown import markdown
 from jinja2 import Environment, FileSystemLoader
@@ -67,4 +70,20 @@ def generate_site(path_to_configdir, path_to_targetdir):
 
 if __name__ == '__main__':
 
-    generate_site('.', 'htmldir')
+    parser = argparse.ArgumentParser(description='site generator')
+
+    parser.add_argument('--config_path')
+    parser.add_argument('--target_path')
+
+    args = parser.parse_args()
+
+    if not all((args.config_path, args.target_path)):
+
+        print(
+            'Syntax: sitegenerator.py',
+            '--config_path <path to config>', 
+            '--target_path <path to html>'
+        )
+        sys.exit()
+
+    generate_site(args.config_path, args.target_path)
