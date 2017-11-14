@@ -1,6 +1,18 @@
 # Encyclopedia
 
-[TODO. There will be project description]
+Script sitegeneration.py generate html site from md document files.
+
+# Requirements
+
+python 3.5+
+
+# Running script
+
+```bash
+python sitegenerator.py --config_path . --target_path generated_html
+```
+
+
 
 # Project Goals
 
