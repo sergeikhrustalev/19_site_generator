@@ -7,7 +7,7 @@ Script sitegeneratior.py generate html site from md document files.
 Script require python3.5+ to run
 
 ```bash
-python sitegenerator.py --config_path . --target_path generated_html
+python sitegenerator.py --config_dir . --target_dir generated_html
 ```
 
 Generated copy of the site available [here](https://sergeikhrustalev.github.io/generated_html/index.html)
