@@ -1,6 +1,6 @@
 # Encyclopedia
 
-Script sitegeneratior.py generate html site from md document files.
+Script site_generatior.py generate html site from md document files.
 
 # Running script
 
