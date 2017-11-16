@@ -14,12 +14,12 @@ def create_directories(directory_list):
         os.makedirs(directory, exist_ok=True)
 
 
-def convert_from_markdown(md_filepath):
+def convert_from_markdown(mdpath):
 
-    with open(md_filepath) as file_handler:
-        md_content = file_handler.read()
+    with open(mdpath) as file_handler:
+        mdcontent = file_handler.read()
 
-    return markdown(md_content, extensions=['codehilite'])
+    return markdown(mdcontent, extensions=['codehilite'])
 
 
 def generate_index_page(index_page, index_structure):
@@ -35,26 +35,26 @@ def generate_index_page(index_page, index_structure):
         )
 
 
-def generate_article_page(title, md_filepath, html_filepath):
+def generate_article_page(title, mdpath, htmlpath):
 
     environment = Environment(loader=FileSystemLoader('.'))
 
     template = environment.get_template('templates/article.html')
 
-    html_content = convert_from_markdown(md_filepath)
+    html_content = convert_from_markdown(mdpath)
 
-    with open(html_filepath, 'w') as file_handler:
+    with open(htmlpath, 'w') as file_handler:
 
         file_handler.write(
             template.render(title=title, html_content=html_content)
         )
 
 
-def generate_site(path_to_configdir, path_to_targetdir):
+def generate_site(config_dir, target_dir):
 
     manager = ConfigManager(
-        config_dir=path_to_configdir,
-        target_dir=path_to_targetdir
+        config_dir=config_dir,
+        target_dir=target_dir
     )
 
     create_directories(manager.directory_list)
@@ -64,26 +64,26 @@ def generate_site(path_to_configdir, path_to_targetdir):
        manager.index_structure
     )
 
-    for title, md_filepath, html_filepath in manager.article_list:
-        generate_article_page(title, md_filepath, html_filepath)
+    for title, mdpath, htmlpath in manager.article_list:
+        generate_article_page(title, mdpath, htmlpath)
 
 
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='site generator')
 
-    parser.add_argument('--config_path')
-    parser.add_argument('--target_path')
+    parser.add_argument('--config_dir')
+    parser.add_argument('--target_dir')
 
     args = parser.parse_args()
 
-    if not all((args.config_path, args.target_path)):
+    if not all((args.config_dir, args.target_dir)):
 
         print(
             'Syntax: sitegenerator.py',
-            '--config_path <path to config>', 
-            '--target_path <path to html>'
+            '--config_dir <path to config>', 
+            '--target_dir <path to html>'
         )
         sys.exit()
 
-    generate_site(args.config_path, args.target_path)
+    generate_site(args.config_dir, args.target_dir)
