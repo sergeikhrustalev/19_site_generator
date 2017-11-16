@@ -81,7 +81,7 @@ if __name__ == '__main__':
 
         print(
             'Syntax: sitegenerator.py',
-            '--config_dir <path to config>', 
+            '--config_dir <path to config>',
             '--target_dir <path to html>'
         )
         sys.exit()

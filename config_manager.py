@@ -71,13 +71,13 @@ class ConfigManager:
 
     @property
     def index_structure(self):
-       
+
         article_dict = defaultdict(list)
-       
+
         for article in self._config_data['articles']:
-           
+
             article_dict[article['topic']].append((
-              
+
                 article['title'],
 
                 quote(
