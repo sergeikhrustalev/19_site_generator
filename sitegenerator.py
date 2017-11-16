@@ -24,9 +24,9 @@ def convert_from_markdown(mdpath):
 
 def generate_index_page(index_page, index_structure):
 
-    environment = Environment(loader=FileSystemLoader('.'))
+    environment = Environment(loader=FileSystemLoader('templates'))
 
-    template = environment.get_template('templates/index.html')
+    template = environment.get_template('index.html')
 
     with open(index_page, 'w') as file_handler:
 
@@ -37,9 +37,9 @@ def generate_index_page(index_page, index_structure):
 
 def generate_article_page(title, mdpath, htmlpath):
 
-    environment = Environment(loader=FileSystemLoader('.'))
+    environment = Environment(loader=FileSystemLoader('templates'))
 
-    template = environment.get_template('templates/article.html')
+    template = environment.get_template('article.html')
 
     html_content = convert_from_markdown(mdpath)
 
