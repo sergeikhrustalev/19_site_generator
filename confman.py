@@ -1,3 +1,4 @@
+from collections import defaultdict
 from os.path import join, split, splitext
 from urllib.parse import quote
 
@@ -70,17 +71,13 @@ class ConfigManager:
 
     @property
     def index_structure(self):
-
-        slug_dict = dict()
-
-        for topic in self._config_data['topics']:
-            slug_dict[topic['slug']] = topic['title'], list()
-
+       
+        article_dict = defaultdict(list)
+       
         for article in self._config_data['articles']:
-
-            article_topic = article['topic']
-
-            slug_dict[article_topic][1].append((
+           
+            article_dict[article['topic']].append((
+              
                 article['title'],
 
                 quote(
@@ -93,7 +90,11 @@ class ConfigManager:
         structure = list()
 
         for topic in self._config_data['topics']:
-            structure.append(slug_dict[topic['slug']])
+
+            structure.append((
+                topic['title'],
+                article_dict[topic['slug']]
+            ))
 
         return structure
 
