@@ -5,7 +5,7 @@ import argparse
 
 from markdown import markdown
 from jinja2 import Environment, FileSystemLoader
-from confman import ConfigManager
+from config_manager import ConfigManager
 
 
 def create_directories(directory_list):
