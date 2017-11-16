@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <title>
+      
+Кодэнви
+
+    </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    
+    <style>
+    .codehilite .hll { background-color: #ffffcc }
+    .codehilite  { background: #f8f8f8; }
+    .codehilite .c { color: #408080; font-style: italic } /* Comment */
+    .codehilite .err { border: 1px solid #FF0000 } /* Error */
+    .codehilite .k { color: #008000; font-weight: bold } /* Keyword */
+    .codehilite .o { color: #666666 } /* Operator */
+    .codehilite .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+    .codehilite .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+    .codehilite .cp { color: #BC7A00 } /* Comment.Preproc */
+    .codehilite .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+    .codehilite .c1 { color: #408080; font-style: italic } /* Comment.Single */
+    .codehilite .cs { color: #408080; font-style: italic } /* Comment.Special */
+    .codehilite .gd { color: #A00000 } /* Generic.Deleted */
+    .codehilite .ge { font-style: italic } /* Generic.Emph */
+    .codehilite .gr { color: #FF0000 } /* Generic.Error */
+    .codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+    .codehilite .gi { color: #00A000 } /* Generic.Inserted */
+    .codehilite .go { color: #888888 } /* Generic.Output */
+    .codehilite .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+    .codehilite .gs { font-weight: bold } /* Generic.Strong */
+    .codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+    .codehilite .gt { color: #0044DD } /* Generic.Traceback */
+    .codehilite .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+    .codehilite .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+    .codehilite .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+    .codehilite .kp { color: #008000 } /* Keyword.Pseudo */
+    .codehilite .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+    .codehilite .kt { color: #B00040 } /* Keyword.Type */
+    .codehilite .m { color: #666666 } /* Literal.Number */
+    .codehilite .s { color: #BA2121 } /* Literal.String */
+    .codehilite .na { color: #7D9029 } /* Name.Attribute */
+    .codehilite .nb { color: #008000 } /* Name.Builtin */
+    .codehilite .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+    .codehilite .no { color: #880000 } /* Name.Constant */
+    .codehilite .nd { color: #AA22FF } /* Name.Decorator */
+    .codehilite .ni { color: #999999; font-weight: bold } /* Name.Entity */
+    .codehilite .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+    .codehilite .nf { color: #0000FF } /* Name.Function */
+    .codehilite .nl { color: #A0A000 } /* Name.Label */
+    .codehilite .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+    .codehilite .nt { color: #008000; font-weight: bold } /* Name.Tag */
+    .codehilite .nv { color: #19177C } /* Name.Variable */
+    .codehilite .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+    .codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+    .codehilite .mb { color: #666666 } /* Literal.Number.Bin */
+    .codehilite .mf { color: #666666 } /* Literal.Number.Float */
+    .codehilite .mh { color: #666666 } /* Literal.Number.Hex */
+    .codehilite .mi { color: #666666 } /* Literal.Number.Integer */
+    .codehilite .mo { color: #666666 } /* Literal.Number.Oct */
+    .codehilite .sa { color: #BA2121 } /* Literal.String.Affix */
+    .codehilite .sb { color: #BA2121 } /* Literal.String.Backtick */
+    .codehilite .sc { color: #BA2121 } /* Literal.String.Char */
+    .codehilite .dl { color: #BA2121 } /* Literal.String.Delimiter */
+    .codehilite .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+    .codehilite .s2 { color: #BA2121 } /* Literal.String.Double */
+    .codehilite .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+    .codehilite .sh { color: #BA2121 } /* Literal.String.Heredoc */
+    .codehilite .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+    .codehilite .sx { color: #008000 } /* Literal.String.Other */
+    .codehilite .sr { color: #BB6688 } /* Literal.String.Regex */
+    .codehilite .s1 { color: #BA2121 } /* Literal.String.Single */
+    .codehilite .ss { color: #19177C } /* Literal.String.Symbol */
+    .codehilite .bp { color: #008000 } /* Name.Builtin.Pseudo */
+    .codehilite .fm { color: #0000FF } /* Name.Function.Magic */
+    .codehilite .vc { color: #19177C } /* Name.Variable.Class */
+    .codehilite .vg { color: #19177C } /* Name.Variable.Global */
+    .codehilite .vi { color: #19177C } /* Name.Variable.Instance */
+    .codehilite .vm { color: #19177C } /* Name.Variable.Magic */
+    .codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+    </style>
+    
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      
+      <nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb">
+          
+          <li class="breadcrumb-item"><a href="../index.html">Главная</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Кодэнви</li>
+          
+        </ol>
+      </nav>
+      
+
+      
+<p>Кодэнви – это всё, что нужно для разработки ПО без лишней головной боли.</p>
+<p>Он позволяет создавать "рабочие места". Это, фактически, удалённый компьютер с прямым доступом к нему.
+На нём уже установлены нужные для разработки библиотеки, редактор кода есть прямо в браузере,
+осталось только начать разрабатывать код. Круто, а?</p>
+<p>Такой сервис очень удобен для быстрого начала разработки: если нужно писать код,
+а не возиться с установкой библиотек и подбором инструментов.</p>
+<p>Сервис платный, но есть бесплатный абонемент с вменяемыми ограничениями: не будет возможности для совместного кодинга
+и больше трёх гигабайт оперативной памяти. Не очень-то и хотелось!</p>
+<p>Теперь немного о процессе регистрации: если выберете ненужный продукт, придётся за него платить. Выбирай нужный.
+Вот что тебе нужно:</p>
+<ul>
+<li>Codenvy for Developers. Он для разработчиков-одиночек, зато бесплатный.</li>
+<li>Codenvy (Next-Generation). Это выбиралка интерфейса и новый значительно удобнее.</li>
+</ul>
+<p>Залогиниться можно через какой-нибудь Гугл плюс или Гитхаб и ура, ты уже можешь работать.</p>
+<p>Для этого нужно создать рабочее место. Жми "Create Workplace" и выбирай Python Stack.
+Всё, можно смотреть за тем, как создаётся твой личный контейнер.</p>
+<p><a href="https://codenvy.com/">Зарегистрироваться!</a></p>
+
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>
