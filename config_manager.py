@@ -18,7 +18,8 @@ class ConfigManager:
         self._config_dir = config_dir
         self._target_dir = target_dir
 
-    def _rename_md_to_html(self, article_source):
+    @staticmethod
+    def _rename_md_to_html(article_source):
         return '{}{}'.format(splitext(article_source)[0], '.html')
 
     def _get_md_path(self, article_source):
