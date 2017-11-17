@@ -19,7 +19,7 @@ class ConfigManager:
         self._target_dir = target_dir
 
     @staticmethod
-    def _rename_md_to_html(article_source):
+    def _rename_to_html(article_source):
         return '{}{}'.format(splitext(article_source)[0], '.html')
 
     def _get_md_path(self, article_source):
@@ -34,7 +34,7 @@ class ConfigManager:
 
         return join(
             self._target_dir,
-            self._rename_md_to_html(article_source)
+            self._rename_to_html(article_source)
         )
 
     @property
@@ -82,7 +82,7 @@ class ConfigManager:
                 article['title'],
 
                 quote(
-                    self._rename_md_to_html(article['source']),
+                    self._rename_to_html(article['source']),
                     safe='/'
                 )
 
