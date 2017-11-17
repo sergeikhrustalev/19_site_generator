@@ -4,8 +4,6 @@ Script site_generatior.py generate html site from md document files.
 
 # Running script
 
-Script require python3.5+ to run
-
 ```bash
 python site_generator.py --config_dir resources --target_dir target_html
 ```
