@@ -40,35 +40,34 @@ class ConfigManager:
     @property
     def directory_list(self):
 
-        directory_list = list()
+        return list(
 
-        for article in self._config_data['articles']:
-
-            directory_list.append(
-
+            {
                 join(
                     self._target_dir,
                     split(article['source'])[0]
                 )
 
-            )
-
-        return list(set(directory_list))
+                for article in self._config_data['articles']
+            }
+        )
 
     @property
     def article_list(self):
 
-        article_list = list()
+        return [
 
-        for article in self._config_data['articles']:
+            (
 
-            article_list.append((
                 article['title'],
                 self._get_md_path(article['source']),
                 self._get_html_path(article['source'])
-            ))
 
-        return article_list
+            )
+
+            for article in self._config_data['articles']
+
+        ]
 
     @property
     def index_structure(self):
