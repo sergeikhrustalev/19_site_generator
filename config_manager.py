@@ -7,7 +7,7 @@ import json
 
 class ConfigManager:
 
-    def __init__(self, config_dir='.', target_dir='html'):
+    def __init__(self, config_dir, target_dir):
 
         config_path = join(config_dir, 'config.json')
 
