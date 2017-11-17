@@ -88,16 +88,16 @@ class ConfigManager:
 
             ))
 
-        structure = list()
+        return [
 
-        for topic in self._config_data['topics']:
-
-            structure.append((
+            (
                 topic['title'],
                 article_dict[topic['slug']]
-            ))
+            )
 
-        return structure
+            for topic in self._config_data['topics']
+
+        ]
 
     @property
     def index_page(self):
