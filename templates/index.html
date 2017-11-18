@@ -8,8 +8,10 @@
 {% set pagetype = 'index' %}
 
 {% block content%}
+<div class="row">
 {% for topic in index_structure %}
 
+    <div class="col">
     <h4>{{topic.0}}</h4>
     
     <ul>
@@ -17,6 +19,12 @@
         <li><a href="{{article.1}}">{{article.0|e}}</a></li>
     {% endfor%}
     </ul>
+    </div>
+
+    {% if not loop.index % 2 %}
+    <div class="w-100"></div>
+    {% endif %}
 
 {% endfor %}
+</div>
 {% endblock%}
